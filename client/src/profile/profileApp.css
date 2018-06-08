@@ -99,6 +99,125 @@
   margin: 10px;
 }
 
+.post-block{
+  height: 400px;
+  margin: 10px;
+    display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+.post-btn-div{
+  width: 300px;
+  height: 300px;
+  margin: 50px;
+    display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.post-block-label{
+  cursor: pointer;
+}
+
+.post-block img{
+  max-width: 30vw;
+  max-height: 300px;
+  margin: 10px;
+}
+
+.post-content-div{
+  width: 60vw;
+  height: 100%;
+  margin: 10px;
+  display:         flex;
+  flex-direction: column;
+  font-family: monospace;
+  font-size: 30px;
+  flex-grow: 1;
+}
+
+.post-content-bar{
+  height: 50px;
+}
+
+.post-content{
+  margin: 0px;
+  overflow-y: scroll;
+  flex-grow: 1;
+  cursor: text;
+  word-wrap: break-word;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 10px;
+  border-color: rgb(200, 200, 200);
+}
+
+.post-submit-block{
+  width: 90vw;
+  height: 100px;
+  margin: auto;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 5px;
+  border-color: pink;
+  background-color: pink;
+  color: white;
+  border-radius: 10px;
+  font-size: 50px;
+}
+
+.post-submit-block:hover{
+  border-color: rgb(253, 171, 185);  
+}
+
+.post-submit-block div{
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+
+}
+
+.post-content:focus{
+  outline: none;
+}
+
+.post-btn{
+  font-family: monospace;
+  font-size: 20px;
+}
+
+.post-btn-div input{
+  display:none;
+  cursor: pointer;
+}
+
+.post-block-label input{
+  display: none;
+  cursor: pointer;
+}
+
+.post-btn-div p{
+  cursor: pointer;  
+}
+
+.post-btn-div:hover {
+  background: rgb(253, 171, 185);
+  color: white;
+  text-decoration: none;
+}
+
+
 /* .profile-pic-div img:hover .profile-overlay {
   height: 100%;
 } */
@@ -119,6 +238,10 @@
     margin: 10px;
     margin-top: 30px; 
   }
+  .post-content-div{
+  font-size: 20px;
+}
+
 }
 
 @media (max-width: 1300px){
@@ -149,6 +272,7 @@
     width: 100%;
     max-height: 50%;
     padding: 15px;
+    font-size: 30px;
   }
 }
 

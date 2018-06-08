@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./homeApp.css"
 import UserBarApp from "../util/userBarApp";
+import axios from "axios";
 
 import photo1 from "./photos/ld/1.jpg";
 import photo2 from "./photos/ld/2.jpg";
@@ -82,6 +83,10 @@ class HomeApp extends Component {
     this.imgs = photos;
   }
 
+  componentWillMount(){
+    axios.get("/api/home")
+  }
+
   imgOnClick(imgSelected){
     this.state.overlayStyle = {
       height: "100%",
@@ -91,7 +96,7 @@ class HomeApp extends Component {
       imgSelected: this.state.imgSelected,
       overlayStyle: this.state.overlayStyle,
     });
-    setTimeout(() => window.addEventListener('click', this.clickEvent), 10);
+  setTimeout(() => window.addEventListener('click', this.clickEvent), 10);
   }
   
   clickEvent(e){

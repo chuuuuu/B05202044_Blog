@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./userBarApp.css"
-import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class UserBarApp extends Component {
 

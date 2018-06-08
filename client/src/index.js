@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
+import axios from "axios";
 
 import LoginApp from './login/loginApp.js';
 import HomeApp from "./home/homeApp.js"
@@ -29,14 +30,16 @@ class BlogApp extends Component {
   NotFound = () => <div>404 page not found</div>
 
   loginCallback(res){
-    console.log(res)
     if(res.status != "unknown"){
+      let user = res;
       this.state.userId = res.id;
       this.state.userName = res.name
       this.setState({
         userId: this.state.userId,
         userName: this.state.userName,
       });
+      console.log(user);
+      axios.post("/api/login", {user});
     }
   }
 
