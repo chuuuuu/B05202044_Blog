@@ -5,12 +5,6 @@ import axios from "axios";
 import profile from "./adorable-animal-cat-20787_ld.jpg";
 import { read } from "fs";
 import { Link } from "react-router-dom";
-class Img {
-  constructor(photoid, photo) {
-    this.photoid = photoid;
-    this.photo = photo;
-  }
-}
 class ProfileApp extends Component {
     constructor() {
     super();
@@ -36,9 +30,11 @@ class ProfileApp extends Component {
   }
 
   componentWillMount(){
+    if (this.props.match.params.id == 0){}
     axios
       .get("/api/profile/" + this.props.match.params.id)
       .then((res) => {
+        console.log(res);
         this.state.imgs = res.data.imgs;
         this.state.name = res.data.name;
         this.setState({
@@ -183,12 +179,15 @@ class ProfileApp extends Component {
           </div>
           <div id="imgInfo" className="profile-overlay-info-div">
             <div className="profile-overlay-info-profile">
-              <img/>
-              <p>{this.props.match.params.userName}</p>
+              <div className="profile-overlay-info-profile-div">
+                  <img src={profile} />
+              </div>
+              <div className="profile-overlay-info-profile-name">                             
+                <Link to={"/profile/id/" + this.state.selectedId} >{this.state.selectedName}</Link>
+              </div>
             </div>
             <div className="profile-overlay-info-content">
               <div>
-                <Link to={"/profile/id/"+this.state.selectedId} >{this.state.selectedName}</Link>
                 <div id="textSelected"/>
               </div>
             </div>

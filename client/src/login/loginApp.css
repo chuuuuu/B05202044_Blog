@@ -42,4 +42,35 @@
 
 .login-block button{
   background-color: #3CF;
+  width: 300px;
+  height: 80px;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid;
+  font-size: 20px;
+  font-weight: 1000;
+  color: white;
+}
+
+.login-block div{
+  background-color: #3CF;
+  width: 300px;
+  height: 80px;
+  margin: auto;
+  margin-top: 10px;
+  border: 1px solid white;
+  color: white;
+    display: -webkit-flex;
+  display:         flex;
+  -webkit-align-items: center;
+          align-items: center;
+  -webkit-justify-content: center;
+          justify-content: center;
+  cursor: pointer;
+}
+
+.login-block p{
+  font-size: 20px;
+  font-weight: 1000;
+  margin: 0px;
 }

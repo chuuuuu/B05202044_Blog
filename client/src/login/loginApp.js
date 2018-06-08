@@ -14,6 +14,11 @@ class LoginApp extends Component {
               autoLoad={true}
               fields="name,email,picture"
               callback={this.props.loginCallback} />
+            <div onClick={this.props.loginAsGuest}>
+              <p>
+                Login As Guest
+              </p>
+            </div>
           </div>
         </div>
       </div>

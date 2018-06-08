@@ -36,7 +36,19 @@ class Users {
     });
   }
   getHomeImgs(){
-    return [];
+    return new Promise((resolve) => {
+      let sql = "SELECT PHOTO, PID FROM posts";
+      con.query(sql, (err, result) => {
+        if (err) throw err;
+        let urls = result.map((photo) => {
+          return {
+            photo: photo.PHOTO,
+            pid: photo.PID,
+          }
+        });
+        resolve(urls.reverse());
+      })
+    });
   }
   getProfileImgs(id){
     return new Promise((resolve) => {
@@ -114,11 +126,13 @@ app.get("/api/img", (req, res, next) => {
 
 app.post("/api/login", (req, res, next)=>{
   console.log(req.body.user.id+" login");
-  users.login(req.body.user)
+  users.login(req.body.user);
 })
 
-app.get("/api/home", (req, res, next) => {
+app.get("/api/home", async (req, res, next) => {
   console.log("request home data");
+  let imgs = await users.getHomeImgs();
+  res.send({ imgs });
   // res.send(users.getHomeImgs());
 })
 

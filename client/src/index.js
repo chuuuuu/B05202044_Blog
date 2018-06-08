@@ -22,9 +22,10 @@ class BlogApp extends Component {
     this.NotFound = this.NotFound.bind(this);
 
     this.loginCallback = this.loginCallback.bind(this);
+    this.loginAsGuest = this.loginAsGuest.bind(this);
   }
 
-  Login = () => <LoginApp loginCallback = {this.loginCallback}/>
+  Login = () => <LoginApp loginCallback={this.loginCallback} loginAsGuest={this.loginAsGuest}/>
   Home = () => <HomeApp userName={this.state.userName} userId={this.state.userId}/>
   Profile = ({ match }) => <ProfileApp userName={this.state.userName} userId={this.state.userId} match={match}/>
   NotFound = () => <div>404 page not found</div>
@@ -38,9 +39,22 @@ class BlogApp extends Component {
         userId: this.state.userId,
         userName: this.state.userName,
       });
-      console.log(user);
       axios.post("/api/login", {user});
     }
+  }
+
+  loginAsGuest(){
+    let user = {
+      id: '0',
+      name: "貓",
+    };
+    this.state.userId = '0';
+    this.state.userName = "貓";
+    this.setState({
+      userId: this.state.userId,
+      userName: this.state.userName,      
+    })
+    axios.post("/api/login", { user });
   }
 
   render(){

@@ -58,11 +58,38 @@
   width: 500px;
   max-width: 60%;
   overflow-y: scroll;
+  font-size: 30px;
 }
 
 .home-overlay-info-content p{
   margin: 10px;
 }
+
+
+
+.profile-overlay-info-profile{
+  display: flex;
+  justify-content: start;
+}
+
+.profile-overlay-info-profile-name{
+  margin: auto;
+  flex-grow: 1;
+}
+
+.profile-overlay-info-profile-div{
+  height: 150px;
+  width: 150px;
+  margin: 10px;
+}
+
+.profile-overlay-info-profile-div img{
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 500%;
+}
+
 
 @media (max-width: 800px){
   .home-background{
@@ -99,5 +126,14 @@
     max-height: 50%;
     padding: 15px;
   }
-}
 
+  .profile-overlay-info-profile-div{
+    max-height: 50px;
+    max-width: 50px;
+    margin: 10px;
+  }
+
+  .home-overlay-info-div{
+    font-size: 15px;
+  }
+}
