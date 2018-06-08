@@ -30,7 +30,7 @@ class ProfileApp extends Component {
   }
 
   componentWillMount(){
-    if (this.props.match.params.id == 0){}
+    if (this.props.match.params.id == "0"){}
     axios
       .get("/api/profile/" + this.props.match.params.id)
       .then((res) => {

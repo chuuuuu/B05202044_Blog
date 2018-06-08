@@ -1,3 +1,8 @@
+
+const client = "client"
+
+const PORT = process.env.PORT || 3002;
+
 const express = require("express");
 
 const path = require("path");
@@ -22,7 +27,7 @@ const app = express();
 const bodyParser = require("body-parser");
 
 const form = new formidable.IncomingForm({
-  uploadDir: __dirname + "/client/photos",
+  uploadDir: __dirname + "/"+client+"/photos",
   keepExtensions: true,
 });
 
@@ -103,8 +108,8 @@ class Users {
     console.log(path);
     return new Promise((resolve) => {
       im.resize({
-        srcPath: "client/"+path,
-        dstPath: "./client/small/"+path,
+        srcPath: client+"/"+path,
+        dstPath: "./"+client+"/small/"+path,
         height: 400,
       }, function (err, stdout, stderr) {
         if (err) throw err;
@@ -118,7 +123,7 @@ let users = new Users();
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + "/client"));
+app.use(express.static(__dirname + "/"+client));
 
 app.get("/api/img", (req, res, next) => {
   res.send({})
@@ -148,7 +153,7 @@ app.post("/api/upload/:id", (req, res, next) => {
   console.log("someone post something");
   form.parse(req, async (err, fields, files)=>{
     let id = req.params.id;
-    let imgPath = path.relative(__dirname + "/client", files.photo.path);
+    let imgPath = path.relative(__dirname + "/"+client, files.photo.path);
     let content = fields.content;
     await users.resize(imgPath);
     let pid = await users.post(id, imgPath, content);
@@ -162,6 +167,6 @@ app.get("/api/photo/:pid", async (req, res, next) => {
   res.send(data);
 })
 
-app.listen(3002, () => {
-  console.log("listening to port 3002")
+app.listen(PORT, () => {
+  console.log("listening to port "+PORT);
 })
