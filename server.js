@@ -1,4 +1,3 @@
-
 const client = "client"
 
 const PORT = process.env.PORT || 3002;
@@ -11,7 +10,7 @@ const mysql = require('mysql');
 
 const formidable = require("formidable");
 
-const im = require("imagemagick")
+const im = require("imagemagick");
 
 const con = mysql.createConnection({
   host: "localhost",
@@ -25,12 +24,6 @@ const fs = require("fs");
 const app = express();
 
 const bodyParser = require("body-parser");
-
-const form = new formidable.IncomingForm({
-  uploadDir: __dirname + "/"+client+"/photos",
-  keepExtensions: true,
-});
-
 class Users {
   constructor(){
   }
@@ -151,7 +144,14 @@ app.get("/api/profile/:id", async (req, res, next) => {
 
 app.post("/api/upload/:id", (req, res, next) => {
   console.log("someone post something");
+
+  let form = new formidable.IncomingForm({
+    uploadDir: __dirname + "/" + client + "/photos",
+    keepExtensions: true,
+  });
+
   form.parse(req, async (err, fields, files)=>{
+    console.log({files})
     let id = req.params.id;
     let imgPath = path.relative(__dirname + "/"+client, files.photo.path);
     let content = fields.content;
