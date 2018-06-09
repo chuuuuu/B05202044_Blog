@@ -4,7 +4,7 @@ https://agile-dawn-29076.herokuapp.com/
 # Instructions
 step1
 
-    git clone https://github.com/chuuuuu/blog
+    git clone https://github.com/chuuuuu/B05202044_Blog
 
 step2
 
