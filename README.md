@@ -24,6 +24,14 @@ step4
 
 step5
 
+    //replace your sql password in server.js and reset.js
+    
+step6
+
+    node reset.js
+    
+step7
+
     node server.js
     
 Now, you can open http://localhost:3002 in your browser.
