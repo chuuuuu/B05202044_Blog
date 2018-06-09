@@ -4,7 +4,6 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "j;3xj4zj6j4",
-  database: "HornBlog",
   multipleStatements: true,
 });
 
@@ -12,7 +11,7 @@ con.connect();
 
 let sql;
 
-sql = "DROP DATABASE HornBlog;"
+sql = ""
 
 sql += "CREATE DATABASE HornBlog CHARACTER SET 'utf8' COLLATE 'utf8_general_ci';"
 
