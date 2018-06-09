@@ -8,21 +8,13 @@ step1
 
 step2
 
-    cd blog/client
+    cd blog
 
 step3
 
-    npm install
+    sh init.sh
 
 step4
-
-    npm run-script build
-
-step4 
-
-    cd ..
-
-step5
 
     //replace your sql password in server.js and reset.js
     
