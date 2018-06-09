@@ -1,4 +1,4 @@
-const client = "client"
+const client = "client/build"
 
 const PORT = process.env.PORT || 3002;
 
@@ -18,6 +18,8 @@ const con = mysql.createConnection({
   password: "j;3xj4zj6j4",
   database: "HornBlog",
 });
+
+con.connect();
 
 const fs = require("fs");
 
