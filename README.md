@@ -1,3 +1,5 @@
+# 現不支援登出
+
 # DEMO
 https://agile-dawn-29076.herokuapp.com/
 
